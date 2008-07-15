@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   File.open("README.rdoc") do |file|
     file.each do |line|
       line.chomp!
-      break if line.empty?
+      break if line.empty? && description.size > 0
       description << "#{line.gsub(/\[\d\]/, '')}"
     end
   end
