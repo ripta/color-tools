@@ -16,8 +16,6 @@ $LOAD_PATH.unshift('lib')
 require 'rubygems'
 require 'rake/gempackagetask'
 require 'color'
-require 'archive/tar/minitar'
-require 'zlib'
 
 DISTDIR = "color-tools-#{Color::COLOR_TOOLS_VERSION}"
 TARDIST = "../#{DISTDIR}.tar.gz"
@@ -72,6 +70,8 @@ end
 desc "Build a color-tools .tar.gz distribution."
 task :tar => [ TARDIST ]
 file TARDIST => [ :test ] do |t|
+  require 'archive/tar/minitar'
+  require 'zlib'
   current = File.basename(Dir.pwd)
   Dir.chdir("..") do
     begin
