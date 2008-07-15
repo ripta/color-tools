@@ -1,4 +1,4 @@
-= color-tools README
+
 color-tools is a Ruby library to provide RGB, CMYK, and other colourspace
 support to applications that require it. It also provides 152 named RGB
 colours. It offers 152 named RGB colours (184 with spelling variations)
