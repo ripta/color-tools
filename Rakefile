@@ -115,8 +115,8 @@ task TARDIST => [ :test ]
 desc "Build the rdoc documentation for color-tools"
 task :docs do
   require 'rdoc/rdoc'
-  rdoc_options = %w(--title color-tools --main README --line-numbers)
-  files = FileList[*%w(README Changelog bin/**/*.rb lib/**/*.rb)]
+  rdoc_options = %w(--title color-tools --main README.rdoc --line-numbers)
+  files = FileList[*%w(README.rdoc Changelog bin/**/*.rb lib/**/*.rb)]
   rdoc_options += files.to_a
   RDoc::RDoc.new.document(rdoc_options)
 end

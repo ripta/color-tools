@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
 
   s.has_rdoc          = true
-  s.rdoc_options      = %w(--title color-tools --main README --line-numbers)
-  s.extra_rdoc_files  = %w(README Install Changelog)
+  s.rdoc_options      = %w(--title color-tools --main README.rdoc --line-numbers)
+  s.extra_rdoc_files  = %w(README.rdoc Install Changelog)
 
   s.autorequire = %q{color}
   s.require_paths = %w{lib}
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q(ruby-pdf)
   s.homepage = %q{http://rubyforge.org/projects/ruby-pdf}
   description = []
-  File.open("README") do |file|
+  File.open("README.rdoc") do |file|
     file.each do |line|
       line.chomp!
       break if line.empty?
