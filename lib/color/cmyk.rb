@@ -157,8 +157,7 @@ class Color::CMYK
     to_rgb.to_hsl
   end
 
-  attr_accessor :c, :m, :y, :k
-  remove_method :c=, :m=, :y=, :k= ;
+  attr_reader :c, :m, :y, :k
 
   def c=(cc) #:nodoc:
     cc = 1.0 if cc > 1

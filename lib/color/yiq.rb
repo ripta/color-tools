@@ -58,8 +58,7 @@ class Color::YIQ
   end
   alias to_greyscale to_grayscale
 
-  attr_accessor :y, :i, :q
-  remove_method :y=, :i=, :q=
+  attr_reader :y, :i, :q
 
   def y=(yy) #:nodoc:
     yy = 1.0 if yy > 1

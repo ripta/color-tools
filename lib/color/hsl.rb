@@ -112,8 +112,7 @@ class Color::HSL
 
   alias to_grayscale to_greyscale
 
-  attr_accessor :h, :s, :l
-  remove_method :h=, :s=, :l= ;
+  attr_reader :h, :s, :l
 
   def h=(hh) #:nodoc:
     hh = 1.0 if hh > 1

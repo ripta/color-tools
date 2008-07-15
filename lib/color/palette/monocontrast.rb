@@ -42,13 +42,13 @@ class Color::Palette::MonoContrast
 
   DEFAULT_MINIMUM_BRIGHTNESS_DIFF = (125.0 / 255.0)
 
+  attr_reader :minimum_brightness_diff
+
   # The minimum brightness difference between the background and the
   # foreground, and must be between 0..1. Setting this value will
   # regenerate the palette based on the base colours. The default value
   # for this is 125 / 255.0. If this value is set to +nil+, it will be
   # restored to the default.
-  attr_accessor :minimum_brightness_diff
-  remove_method :minimum_brightness_diff= ;
   def minimum_brightness_diff=(bd) #:nodoc:
     if bd.nil?
       @minimum_brightness_diff = DEFAULT_MINIMUM_BRIGHTNESS_DIFF
@@ -65,12 +65,12 @@ class Color::Palette::MonoContrast
 
   DEFAULT_MINIMUM_COLOR_DIFF = (500.0 / 255.0)
 
+  attr_reader :minimum_color_diff
+
   # The minimum colour difference between the background and the
   # foreground, and must be between 0..3. Setting this value will
   # regenerate the palette based on the base colours. The default value
   # for this is 500 / 255.0.
-  attr_accessor :minimum_color_diff
-  remove_method :minimum_color_diff= ;
   def minimum_color_diff=(cd) #:noco:
     if cd.nil?
       @minimum_color_diff = DEFAULT_MINIMUM_COLOR_DIFF

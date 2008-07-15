@@ -288,8 +288,7 @@ class Color::RGB
     hsl.to_rgb
   end
 
-  attr_accessor :r, :g, :b
-  remove_method :r=, :g=, :b=
+  attr_reader :r, :g, :b
 
   def r=(rr) #:nodoc:
     rr = 1.0 if rr > 1

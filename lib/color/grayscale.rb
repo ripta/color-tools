@@ -120,8 +120,7 @@ class Color::GrayScale
     @g
   end
 
-  attr_accessor :g
-  remove_method :g= ;
+  attr_reader :g
   
   def g=(gg) #:nodoc:
     gg = 1.0 if gg > 1
