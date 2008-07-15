@@ -73,12 +73,13 @@ module Color
   def self.const_missing(name) #:nodoc:
     if Color::RGB.const_defined?(name)
       warn "These colour constants have been deprecated. Use Color::RGB::#{name} instead."
-      Color::RGB::constants.each do |const|
-        next if const == "PDF_FORMAT_STR"
-        next if const == "Metallic"
-        const_set(const, Color::RGB.const_get(const))
+      Color::RGB.constants.each do |const|
+        color = Color::RGB.const_get(const)
+        const_set(const, color) if color.is_a?(Color::RGB)
       end
-      class << Color; remove_method :const_missing; end
+      class <<Color
+        remove_method :const_missing
+      end
       Color.const_get(name)
     else
       super
