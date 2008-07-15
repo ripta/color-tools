@@ -62,7 +62,7 @@ require 'color/hsl'
 require 'color/yiq'
 require 'color/rgb/metallic'
 
-  # We load EVERYTHING if we're being run under ZenTest.
+# We load EVERYTHING if we're being run under ZenTest.
 if defined? $ZENTEST and $ZENTEST
   require 'color/css'
   require 'color/palette/gimp'

@@ -9,7 +9,7 @@
 # $Id$
 #++
 
-  # This namespace contains some RGB metallic colours suggested by Jim Freeze.
+# This namespace contains some RGB metallic colours suggested by Jim Freeze.
 module Color::RGB::Metallic
   Aluminum    = Color::RGB.new(0x99, 0x99, 0x99)
   CoolCopper  = Color::RGB.new(0xd9, 0x87, 0x19)

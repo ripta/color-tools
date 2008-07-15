@@ -136,8 +136,8 @@ module TestColor
                         @mcp1.minimum_color_diff, 1e-4)
       end
 
-        # This is empty because the #regenerate method is automatically run
-        # when changing the minimum_brightness_diff or minimum_color_diff.
+      # This is empty because the #regenerate method is automatically run
+      # when changing the minimum_brightness_diff or minimum_color_diff.
       def test_regenerate
       end
     end

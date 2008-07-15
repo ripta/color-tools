@@ -9,12 +9,12 @@
 # $Id$
 #++
 
-  # An HSL colour object. Internally, the hue (#h), saturation (#s), and
-  # luminosity (#l) values are dealt with as fractional values in the range
-  # 0..1.
+# An HSL colour object. Internally, the hue (#h), saturation (#s), and
+# luminosity (#l) values are dealt with as fractional values in the range
+# 0..1.
 class Color::HSL
   class << self
-      # Creates an HSL colour object from fractional values 0..1.
+    # Creates an HSL colour object from fractional values 0..1.
     def from_fraction(h = 0.0, s = 0.0, l = 0.0)
       colour = Color::HSL.new
       colour.h = h
@@ -24,13 +24,13 @@ class Color::HSL
     end
   end
 
-    # Compares the other colour to this one. The other colour will be
-    # converted to HSL before comparison, so the comparison between a HSL
-    # colour and a non-HSL colour will be approximate and based on the other
-    # colour's #to_hsl conversion. If there is no #to_hsl conversion, this
-    # will raise an exception. This will report that two HSL values are
-    # equivalent if all component values are within 1e-4 (0.0001) of each
-    # other.
+  # Compares the other colour to this one. The other colour will be
+  # converted to HSL before comparison, so the comparison between a HSL
+  # colour and a non-HSL colour will be approximate and based on the other
+  # colour's #to_hsl conversion. If there is no #to_hsl conversion, this
+  # will raise an exception. This will report that two HSL values are
+  # equivalent if all component values are within 1e-4 (0.0001) of each
+  # other.
   def ==(other)
     other = other.to_hsl
     other.kind_of?(Color::HSL) and
@@ -39,27 +39,27 @@ class Color::HSL
     ((@l - other.l).abs <= 1e-4)
   end
 
-    # Creates an HSL colour object from the standard values of degrees and
-    # percentages (e.g., 145º, 30%, 50%).
+  # Creates an HSL colour object from the standard values of degrees and
+  # percentages (e.g., 145º, 30%, 50%).
   def initialize(h = 0, s = 0, l = 0)
     @h = h / 360.0
     @s = s / 100.0
     @l = l / 100.0
   end
 
-    # Present the colour as an HTML/CSS colour string.
+  # Present the colour as an HTML/CSS colour string.
   def html
     to_rgb.html
   end
 
-    # Converting to HSL as adapted from Foley and Van-Dam from
-    # http://www.bobpowell.net/RGBHSB.htm.
+  # Converting to HSL as adapted from Foley and Van-Dam from
+  # http://www.bobpowell.net/RGBHSB.htm.
   def to_rgb(ignored = nil)
-      # If luminosity is zero, the colour is always black.
+    # If luminosity is zero, the colour is always black.
     return Color::RGB.new if @l == 0
-      # If luminosity is one, the colour is always white.
+    # If luminosity is one, the colour is always white.
     return Color::RGB.new(0xff, 0xff, 0xff) if @l == 1
-      # If saturation is zero, the colour is always a greyscale colour.
+    # If saturation is zero, the colour is always a greyscale colour.
     return Color::RGB.new(@l, @l, @l) if @s <= 1e-5
 
     if (@l - 0.5) < 1e-5
@@ -88,40 +88,45 @@ class Color::HSL
       end
     end
 
-     Color::RGB.from_fraction(*rgb)
+    Color::RGB.from_fraction(*rgb)
   end
 
-    # Converts to RGB then YIQ.
+  # Converts to RGB then YIQ.
   def to_yiq
     to_rgb.to_yiq
   end
 
-    # Converts to RGB then CMYK.
+  # Converts to RGB then CMYK.
   def to_cmyk
     to_rgb.to_cmyk
   end
 
-    # Returns the luminosity (#l) of the colour.
+  # Returns the luminosity (#l) of the colour.
   def brightness
     @l
   end
+
   def to_greyscale
     Color::GrayScale.from_fraction(@l)
   end
+
   alias to_grayscale to_greyscale
 
   attr_accessor :h, :s, :l
   remove_method :h=, :s=, :l= ;
+
   def h=(hh) #:nodoc:
     hh = 1.0 if hh > 1
     hh = 0.0 if hh < 0
     @h = hh
   end
+
   def s=(ss) #:nodoc:
     ss = 1.0 if ss > 1
     ss = 0.0 if ss < 0
     @s = ss
   end
+
   def l=(ll) #:nodoc:
     ll = 1.0 if ll > 1
     ll = 0.0 if ll < 0
