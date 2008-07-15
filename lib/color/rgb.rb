@@ -11,6 +11,9 @@
 
 # An RGB colour object.
 class Color::RGB
+
+  autoload :Metallic, "color/rgb/metallic"
+
   # The format of a DeviceRGB colour for PDF. In color-tools 2.0 this will
   # be removed from this package and added back as a modification by the
   # PDF::Writer package.

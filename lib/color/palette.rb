@@ -8,8 +8,11 @@
 #
 # $Id$
 #++
+module Color
+  module Palette
 
-require 'color'
+    autoload :Gimp, "color/palette/gimp"
+    autoload :MonoContrast, "color/palette/monocontrast"
 
-module Color::Palette
+  end
 end

@@ -9,10 +9,9 @@
 # $Id$
 #++
 
-require 'color'
-
 # This namespace contains some CSS colour names.
 module Color::CSS
+
   # Returns the RGB colour for name or +nil+ if the name is not valid.
   def self.[](name)
     @colors[name.to_s.downcase.to_sym]
@@ -24,4 +23,5 @@ module Color::CSS
     next if const == "Metallic"
     @colors[const.downcase.to_sym] ||= Color::RGB.const_get(const)
   end
+
 end

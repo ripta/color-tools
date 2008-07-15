@@ -9,8 +9,6 @@
 # $Id$
 #++
 
-require 'color/palette'
-
 # Generates a monochromatic constrasting colour palette for background and
 # foreground. What does this mean?
 #

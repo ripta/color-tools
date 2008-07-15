@@ -47,29 +47,18 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 module Color
+  
   COLOR_TOOLS_VERSION = '1.3.0'
+  
+  autoload :CMYK, "color/cmyk"
+  autoload :CSS, "color/css"
+  autoload :GrayScale, "color/grayscale"
+  autoload :GreyScale, "color/grayscale"
+  autoload :HSL, "color/hsl"
+  autoload :Palette, "color/palette"
+  autoload :RGB, "color/rgb"
+  autoload :YIQ, "color/yiq"
 
-  class RGB; end
-  class CMYK; end
-  class GrayScale; end
-  class YIQ; end
-end
-
-require 'color/rgb'
-require 'color/cmyk'
-require 'color/grayscale'
-require 'color/hsl'
-require 'color/yiq'
-require 'color/rgb/metallic'
-
-# We load EVERYTHING if we're being run under ZenTest.
-if defined? $ZENTEST and $ZENTEST
-  require 'color/css'
-  require 'color/palette/gimp'
-  require 'color/palette/monocontrast'
-end
-
-module Color
   def self.const_missing(name) #:nodoc:
     if Color::RGB.const_defined?(name)
       warn "These colour constants have been deprecated. Use Color::RGB::#{name} instead."
@@ -85,4 +74,5 @@ module Color
       super
     end
   end
+
 end

@@ -9,8 +9,6 @@
 # $Id$
 #++
 
-require 'color/palette'
-
 # A class that can read a GIMP (GNU Image Manipulation Program) palette
 # file and provide a Hash-like interface to the contents. GIMP colour
 # palettes are RGB values only.
