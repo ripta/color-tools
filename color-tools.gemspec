@@ -10,7 +10,7 @@
 #++
 Gem::Specification.new do |s|
   s.name = %q{color-tools}
-  s.version = %q{1.3.0}
+  s.version = %q{1.4.0}
   s.summary = %q{color-tools provides colour space definition and manpiulation as well as commonly named RGB colours.}
   s.platform = Gem::Platform::RUBY
 
