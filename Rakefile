@@ -14,7 +14,7 @@
 $LOAD_PATH.unshift('lib')
 
 require 'rubygems'
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 require 'color'
 
 DISTDIR = "color-tools-#{Color::COLOR_TOOLS_VERSION}"
@@ -59,7 +59,7 @@ spec = eval(File.read("color-tools.gemspec"))
 spec.version = Color::COLOR_TOOLS_VERSION
 desc "Build the RubyGem for color-tools"
 task :gem => [ :test ]
-Rake::GemPackageTask.new(spec) do |g|
+Gem::PackageTask.new(spec) do |g|
   g.need_tar    = false
   g.need_zip    = false
   g.package_dir = ".."
