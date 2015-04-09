@@ -47,7 +47,7 @@ def run_tests(test_list)
   $:.shift
 end
 
-rdoc  = %w(--main README --line-numbers --title color-tools)
+rdoc  = %w(--main README --line-numbers --title ripta-color-tools)
 ri    = %w(--ri-site --merge)
 dox   = %w(README Changelog lib)
 build_rdoc rdoc + dox

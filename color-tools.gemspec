@@ -9,13 +9,13 @@
 # $Id$
 #++
 Gem::Specification.new do |s|
-  s.name = %q{color-tools}
+  s.name = %q{ripta-color-tools}
   s.version = %q{1.4.0}
   s.summary = %q{color-tools provides colour space definition and manpiulation as well as commonly named RGB colours.}
   s.platform = Gem::Platform::RUBY
 
   s.has_rdoc          = true
-  s.rdoc_options      = %w(--title color-tools --main README.rdoc --line-numbers)
+  s.rdoc_options      = %w(--title ripta-color-tools --main README.rdoc --line-numbers)
   s.extra_rdoc_files  = %w(README.rdoc Install Changelog)
 
   s.autorequire = %q{color}
